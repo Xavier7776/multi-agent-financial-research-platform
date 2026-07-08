@@ -1,6 +1,6 @@
 # Multi-Agent Financial Research Platform
 
-基于 GPT-Researcher 改造的多 Agent 协作金融研报自动生成系统。
+多 Agent 协作的金融研报自动生成系统 —— 输入一家公司名称，自动生成 8 章节专业研报。
 
 ## 核心能力
 
