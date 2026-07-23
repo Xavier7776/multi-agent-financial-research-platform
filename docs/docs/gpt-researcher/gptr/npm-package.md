@@ -1,17 +1,17 @@
 # npm package
 
-The [gpt-researcher npm package](https://www.npmjs.com/package/gpt-researcher) is a WebSocket client for interacting with GPT Researcher.
+The [mindstack npm package](https://www.npmjs.com/package/gpt-researcher) is a WebSocket client for interacting with MindStack.
 
 ## Installation
 
 ```bash
-npm install gpt-researcher
+npm install mindstack
 ```
 
 ## Usage
 
 ```javascript
-const GPTResearcher = require('gpt-researcher');
+const GPTResearcher = require('mindstack');
 
 const researcher = new GPTResearcher({
   host: 'localhost:8000',

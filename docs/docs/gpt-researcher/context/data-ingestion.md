@@ -8,9 +8,9 @@ Some signs that the system is telling you to move to a custom data ingestion pro
 - Your Langchain VectorStore's underlying database needs rate limiting
 - You sense you need to add custom pacing/throttling logic in your Python code
 
-As mentioned in our [YouTube Tutorial Series](https://www.youtube.com/watch?v=yRuduRCblbg), GPTR is using [Langchain Documents](https://python.langchain.com/api_reference/core/documents/langchain_core.documents.base.Document.html) and [Langchain VectorStores](https://python.langchain.com/v0.1/docs/modules/data_connection/vectorstores/) under the hood.
+As mentioned in our [YouTube Tutorial Series](https://www.youtube.com/watch?v=yRuduRCblbg), mindstack is using [Langchain Documents](https://python.langchain.com/api_reference/core/documents/langchain_core.documents.base.Document.html) and [Langchain VectorStores](https://python.langchain.com/v0.1/docs/modules/data_connection/vectorstores/) under the hood.
 
-These are 2 beautiful abstractions that make the GPTR architecture highly configurable.
+These are 2 beautiful abstractions that make the mindstack architecture highly configurable.
 
 The current research flow, whether you're generating reports on web or local documents, is:
 
@@ -23,7 +23,7 @@ Step 2: Insert your Langchain Documents into a Langchain VectorStore
 ```
 
 ```bash
-Step 3: Pass your Langchain Vectorstore into your GPTR report ([more on that here](https://docs.gptr.dev/docs/gpt-researcher/context/vector-stores) and below)
+Step 3: Pass your Langchain Vectorstore into your mindstack report ([more on that here](https://docs.gptr.dev/docs/gpt-researcher/context/vector-stores) and below)
 ```
 
 Code samples below:
@@ -39,7 +39,7 @@ PGVECTOR_CONNECTION_STRING=postgresql://username:password...
 Below is a custom data ingestion process that you can use to ingest your data into a Langchain VectorStore. See a [full working example here](https://github.com/assafelovic/gpt-researcher/pull/819#issue-2501632831).
 In this example, we're using a Postgres VectorStore to embed data of a Github Branch, but you can use [any supported Langchain VectorStore](https://python.langchain.com/v0.2/docs/integrations/vectorstores/).
 
-Note that when you create the Langchain Documents, you should include as metadata the `source` and `title` fields in order for GPTR to leverage your Documents seamlessly. In the example below, we're splitting the documents list into chunks of 100 & then inserting 1 chunk at a time into the vector store.
+Note that when you create the Langchain Documents, you should include as metadata the `source` and `title` fields in order for mindstack to leverage your Documents seamlessly. In the example below, we're splitting the documents list into chunks of 100 & then inserting 1 chunk at a time into the vector store.
 
 ### Step 1: Transform your content into Langchain Documents
 
@@ -124,7 +124,7 @@ async def save_to_vector_store(self, documents):
         vector_store.add_documents(chunk, ids=[doc.metadata["id"] for doc in chunk])
 ```
 
-### Step 3: Pass your Langchain Vectorstore into your GPTR report
+### Step 3: Pass your Langchain Vectorstore into your mindstack report
 
 ```python
 async_connection_string = pgvector_connection_string.replace("postgresql://", "postgresql+psycopg://")
@@ -143,7 +143,7 @@ async_vector_store = PGVector(
 )
 
 
-researcher = GPTResearcher(
+researcher = mindstackesearcher(
     query=query,
     report_type="research_report",
     report_source="langchain_vectorstore",

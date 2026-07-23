@@ -2,11 +2,11 @@
 
 ## Introduction
 
-In this section, we will discuss how to query the GPTR backend server. The GPTR backend server is a Python server that runs the GPTR Python package. The server listens for WebSocket connections and processes incoming messages to generate reports, streaming back logs and results to the client.
+In this section, we will discuss how to query the mindstack backend server. The mindstack backend server is a Python server that runs the mindstack Python package. The server listens for WebSocket connections and processes incoming messages to generate reports, streaming back logs and results to the client.
 
 An example WebSocket client is implemented in the `gptr-webhook.js` file below.
 
-This function sends a Webhook Message to the GPTR Python backend running on localhost:8000, but this example can also be modified to query a [GPTR Server hosted on Linux](https://docs.gptr.dev/docs/gpt-researcher/getting-started/linux-deployment).
+This function sends a Webhook Message to the mindstack Python backend running on localhost:8000, but this example can also be modified to query a [mindstack Server hosted on Linux](https://docs.gptr.dev/docs/gpt-researcher/getting-started/linux-deployment).
 
 // gptr-webhook.js
 
@@ -99,7 +99,7 @@ And here's how you can leverage this helper function:
 const { sendWebhookMessage } = require('./gptr-webhook');
 
 async function main() {
-  const message = 'How do I get started with GPT-Researcher Websockets?';
+  const message = 'How do I get started with MindStack Websockets?';
   const response = await sendWebhookMessage(message);
   console.log('Response:', response);
 }

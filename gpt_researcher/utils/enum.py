@@ -1,4 +1,4 @@
-"""Enumeration types for GPT Researcher configuration."""
+"""Enumeration types for MindStack configuration."""
 
 from enum import Enum
 
@@ -7,7 +7,7 @@ class ReportType(Enum):
     """Enumeration of available report types for research output.
 
     Defines the different types of reports that can be generated
-    by the GPT Researcher agent.
+    by the MindStack agent.
 
     Attributes:
         ResearchReport: Standard research report with comprehensive analysis.

@@ -24,7 +24,7 @@ GOOGLE_CX_KEY=your_google_custom_search_engine_id
 When using the pip package, you can pass a list of domains to filter results:
 
 ```python
-report = GPTResearcher(
+report = mindstackesearcher(
     query="Latest AI Startups",
     report_type="research_report",
     report_source="web",
@@ -46,7 +46,7 @@ When using the Vanilla JS frontend, you can pass a list of domains to filter res
 
 ## Filtering by Domain based on URL Param
 
-If you'd like to show off for your work pals how GPTR is the ultra-customizable Deep Research Agent, you can send them a link to your hosted GPTR app with the domain filter included in the URL itself.
+If you'd like to show off for your work pals how mindstack is the ultra-customizable Deep Research Agent, you can send them a link to your hosted mindstack app with the domain filter included in the URL itself.
 
 This can be handle for demonstrating a proof of concept of the Research Agent tailored to a specific domain. Some examples below:
 
@@ -58,4 +58,4 @@ https://app.gptr.dev/?domains=wikipedia.org
 
 https://app.gptr.dev/?domains=wired.com,forbes.com,wikipedia.org
 
-The `https://app.gptr.dev` part of the URL can be replaces with [the domain that you deployed GPTR on](https://docs.gptr.dev/docs/gpt-researcher/getting-started/linux-deployment).
+The `https://app.gptr.dev` part of the URL can be replaces with [the domain that you deployed mindstack on](https://docs.gptr.dev/docs/gpt-researcher/getting-started/linux-deployment).

@@ -143,9 +143,17 @@ class FinancialDataTool:
     自行计算 PE/PB/ROE/营收增速/利润率/负债率，保证数据一致性。
     """
 
-    def __init__(self, ticker: str):
+    def __init__(self, ticker: str, task: dict = None):
+        """
+        Args:
+            ticker: 股票代码（美股字母，如 AAPL）
+            task: 任务配置 dict（含 model 等），用于 PeerResolver 的 LLM 兜底。
+                  向后兼容：未传时 PeerResolver 仍可用 FMP API + YAML，仅跳过 LLM 兜底。
+        """
         self.ticker = ticker.upper().strip()
+        self._task = task
         self._cache: dict = {}
+        self._peer_resolver = None  # lazy 初始化，避免 import 循环
 
     # ------------------------------------------------------------------
     # 内部：请求 + 重试
@@ -365,42 +373,63 @@ class FinancialDataTool:
     # ------------------------------------------------------------------
 
     async def get_industry_peers(self) -> list[dict]:
+        """获取同行列表 — 通过 PeerResolver 三层降级：
+        FMP /stock-peers API → YAML 静态映射 → LLM 兜底。
+
+        Returns:
+            [{"ticker","name","pe","pb","roe","revenue_growth","market_cap"}, ...]
+            与旧版字段完全对齐，向后兼容 editor/writer/reviewer。
+        """
         cache_key = "industry_peers"
         if cache_key in self._cache:
             return self._cache[cache_key]
 
         try:
-            # 确保 overview 已缓存（避免并发调 _fetch_profile 两次）
+            # 确保 overview 已缓存（PeerResolver 需要 industry 字段做 YAML 匹配）
             if "stock_overview" not in self._cache:
                 await self.get_stock_overview()
+            overview = self._cache.get("stock_overview", {})
 
-            overview_cache = self._cache.get("stock_overview", {})
-            industry = overview_cache.get("industry", "")
-            if not industry:
-                profile = await asyncio.to_thread(self._fetch_profile)
-                industry = profile.get("industry", "") if profile else ""
-
-            symbol_list = _get_fallback_peers(self.ticker, industry)
-            # DEBUG
-            logger.info(
-                f"[DEBUG peers] ticker={self.ticker!r}, industry={industry!r}, "
-                f"found={len(symbol_list)} peers"
+            resolver = self._get_peer_resolver()
+            peer_infos = await resolver.resolve(
+                ticker=self.ticker,
+                overview=overview,
+                industry=overview.get("industry", ""),
             )
-            if not symbol_list:
-                self._cache[cache_key] = []
-                return []
-
-            limited = symbol_list[:6]
-            tasks = [self._fetch_peer_info(s) for s in limited]
-            results = await asyncio.gather(*tasks, return_exceptions=True)
-            peers = [r for r in results if isinstance(r, dict) and r]
-
+            peers = [p.to_dict() for p in peer_infos]
             self._cache[cache_key] = peers
             return peers
 
         except Exception as e:
             logger.warning(f"[FinancialData] get_industry_peers({self.ticker}) 失败: {e}")
             return []
+
+    def _get_peer_resolver(self):
+        """lazy 初始化 PeerResolver，避免 import 循环。"""
+        if self._peer_resolver is None:
+            from .peers import PeerResolver
+            self._peer_resolver = PeerResolver(
+                task=self._task,
+                fmp_fetcher=_fmp_get,
+                peer_info_fetcher=self._fetch_peer_info_as_peer,
+            )
+        return self._peer_resolver
+
+    async def _fetch_peer_info_as_peer(self, symbol: str):
+        """PeerResolver 回调：补查 peer 的 PE/PB/ROE，返回 PeerInfo。"""
+        from .peers import PeerInfo
+        d = await self._fetch_peer_info(symbol)
+        if not d:
+            return None
+        return PeerInfo(
+            ticker=d.get("ticker", symbol),
+            name=d.get("name", ""),
+            market_cap=d.get("market_cap"),
+            pe=d.get("pe"),
+            pb=d.get("pb"),
+            roe=d.get("roe"),
+            revenue_growth=d.get("revenue_growth"),
+        )
 
     async def _fetch_peer_info(self, symbol: str) -> dict:
         """获取同行的完整估值指标（profile + income + balance sheet）。"""
@@ -466,67 +495,6 @@ def _safe_float(value) -> Optional[float]:
         return None
 
 
-# 行业 → 可比公司映射（按 FMP profile.industry 字段分组）
-# 比 ticker→peers 更灵活：同一行业的任何股票自动获得同行。
-_INDUSTRY_PEERS: dict[str, list[str]] = {
-    # 消费电子
-    "Consumer Electronics": ["AAPL", "SONO", "HEAR", "VUZI", "GPRO"],
-    # 软件
-    "Software—Infrastructure": ["MSFT", "ORCL", "CRM", "ADBE", "PANW"],
-    "Software—Application": ["ADBE", "CRM", "INTU", "NOW", "WDAY"],
-    # 互联网
-    "Internet Content & Information": ["GOOGL", "META", "SNAP", "PINS", "BIDU"],
-    "Internet Retail": ["AMZN", "JD", "BABA", "ETSY", "W"],
-    # 半导体
-    "Semiconductors": ["NVDA", "AMD", "INTC", "QCOM", "AVGO"],
-    "Semiconductor Equipment & Materials": ["ASML", "AMAT", "LRCX", "KLAC", "TSM"],
-    # 汽车
-    "Auto Manufacturers": ["TSLA", "F", "GM", "TM", "RIVN"],
-    # 娱乐/传媒
-    "Entertainment": ["NFLX", "DIS", "WBD", "CMCSA", "SPOT"],
-    # 银行
-    "Banks—Diversified": ["JPM", "BAC", "WFC", "C", "GS"],
-    # 医药
-    "Drug Manufacturers—General": ["JNJ", "PFE", "MRK", "ABBV", "LLY"],
-    # 零售
-    "Discount Stores": ["WMT", "COST", "TGT", "DG", "DLTR"],
-    # 支付
-    "Credit Services": ["V", "MA", "AXP", "PYPL", "SQ"],
-    "Financial Data & Stock Exchanges": ["SPGI", "MCO", "MSCI", "NDAQ", "ICE"],
-    # 云计算/IT服务
-    "Information Technology Services": ["IBM", "ACN", "INFY", "CTSH", "DXC"],
-    # 电子制造/硬件
-    "Computer Hardware": ["DELL", "HPQ", "NTAP", "SMCI", "PSTG"],
-    # 饮料
-    "Beverages—Non-Alcoholic": ["KO", "PEP", "MNST", "KDP", "FIZZ"],
-    # 航空航天
-    "Aerospace & Defense": ["BA", "LMT", "RTX", "NOC", "GD"],
-    # 游戏
-    "Electronic Gaming & Multimedia": ["EA", "TTWO", "U", "RBLX", "PLTK"],
-}
-
-
-def _get_fallback_peers(ticker: str, industry: str = "") -> list[str]:
-    """获取可比公司列表：行业映射优先 → ticker 兜底。
-
-    Args:
-        ticker: 目标股票代码
-        industry: FMP profile 返回的 industry 字段（如 "Consumer Electronics"）
-
-    Returns:
-        同行 ticker 列表（已过滤自身）
-    """
-    # 优先：按行业匹配（覆盖 20 个行业）
-    if industry:
-        peers = _INDUSTRY_PEERS.get(industry)
-        if peers:
-            return [p for p in peers if p.upper() != ticker.upper()]
-
-    # 兜底：尝试 ticker 本身所属的行业
-    ticker_upper = ticker.upper()
-    for ind_peers in _INDUSTRY_PEERS.values():
-        if ticker_upper in ind_peers:
-            return [p for p in ind_peers if p.upper() != ticker_upper]
-
-    # 最终兜底：返回空
-    return []
+# 注：行业 → 可比公司映射已迁移到 config/industry_peers.yaml
+# 由 multi_agents/components/peers.py 的 YAMLIndustrySource 加载。
+# 同行解析统一走 PeerResolver（FMP API → YAML → LLM 三层降级）。

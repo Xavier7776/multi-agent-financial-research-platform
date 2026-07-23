@@ -23,4 +23,4 @@ RETRIEVER="bing" # if you are using Bing as your search engine (which is likely 
 BING_API_KEY="[Your Key]"
 ```
 
-For more details on what each variable does, you can check out the [GPTR Config Docs](https://docs.gptr.dev/docs/gpt-researcher/gptr/config)
+For more details on what each variable does, you can check out the [mindstack Config Docs](https://docs.gptr.dev/docs/gpt-researcher/gptr/config)

@@ -1,7 +1,7 @@
-"""Configuration management for GPT Researcher.
+"""Configuration management for MindStack.
 
 This module provides the Config class that manages all configuration
-settings for GPT Researcher including LLM providers, embeddings,
+settings for MindStack including LLM providers, embeddings,
 retrievers, and various operational parameters.
 """
 
@@ -17,7 +17,7 @@ from .variables.default import DEFAULT_CONFIG
 
 
 class Config:
-    """Configuration manager for GPT Researcher.
+    """Configuration manager for MindStack.
 
     Handles loading, parsing, and managing all configuration settings
     from files, environment variables, and defaults.

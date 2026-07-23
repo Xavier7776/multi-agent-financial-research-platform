@@ -20,9 +20,9 @@ with open("requirements.txt", "r") as f:
     reqs = [line.strip() for line in f if not any(pkg in line for pkg in exclude_packages)]
 
 setup(
-    name="gpt-researcher",
+    name="mindstack",
     version=LATEST_VERSION,
-    description="GPT Researcher is an autonomous agent designed for comprehensive web research on any task",
+    description="MindStack is an autonomous agent designed for comprehensive web research on any task",
     package_dir={'gpt_researcher': 'gpt_researcher'},
     packages=find_packages(exclude=exclude_packages),
     long_description=long_description,

@@ -1,4 +1,4 @@
-"""Web scraper module for GPT Researcher.
+"""Web scraper module for MindStack.
 
 This module provides the Scraper class that extracts content from URLs
 using various scraping backends (BeautifulSoup, PyMuPDF, Browser, etc.).

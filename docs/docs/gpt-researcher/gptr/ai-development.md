@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # 🤖 AI-Assisted Development with Claude
 
-GPT Researcher includes a comprehensive skill file that enables AI assistants like Claude to understand, use, and extend the codebase effectively. This guide explains how to leverage Claude Code for contributing to GPT Researcher.
+MindStack includes a comprehensive skill file that enables AI assistants like Claude to understand, use, and extend the codebase effectively. This guide explains how to leverage Claude Code for contributing to MindStack.
 
 ## Overview
 
@@ -57,7 +57,7 @@ We maintain a `.claude/skills/` directory containing detailed documentation that
 ### Installation
 
 1. Install [Claude Code](https://claude.ai/code) (VS Code extension or CLI)
-2. Open the GPT Researcher repository
+2. Open the MindStack repository
 3. Claude automatically discovers the skills in `.claude/skills/`
 
 ### Example Prompts
@@ -158,7 +158,7 @@ AI-assisted development is becoming standard practice. By maintaining high-quali
 - **Code quality** stays consistent across contributions
 - **Documentation** stays up-to-date as a side effect
 
-The skills file is essentially a "brain dump" of everything an expert developer knows about GPT Researcher, made available to AI assistants.
+The skills file is essentially a "brain dump" of everything an expert developer knows about MindStack, made available to AI assistants.
 
 ## Learn More
 

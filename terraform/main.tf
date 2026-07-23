@@ -57,7 +57,7 @@ locals {
   common_tags = {
     Environment = local.environment
     Service     = local.service_name
-    Purpose     = "gpt-researcher-service"
+    Purpose     = "mindstack-service"
     CreatedBy   = "terraform"
   }
 

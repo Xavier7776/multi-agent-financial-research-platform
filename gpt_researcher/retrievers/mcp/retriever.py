@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 class MCPRetriever:
     """
-    Model Context Protocol (MCP) Retriever for GPT Researcher.
+    Model Context Protocol (MCP) Retriever for MindStack.
     
     This retriever implements a two-stage approach:
     1. Tool Selection: LLM selects 2-3 most relevant tools from all available MCP tools
@@ -203,7 +203,7 @@ class MCPRetriever:
         """
         Perform a search using MCP tools with intelligent two-stage approach.
         
-        This is the synchronous interface required by GPT Researcher.
+        This is the synchronous interface required by MindStack.
         It wraps the async search_async method.
         
         Args:

@@ -1,12 +1,12 @@
 ---
-name: gpt-researcher
+name: mindstack
 description: Autonomous deep research from Codex via MCP
 ---
 
-# GPT Researcher for Codex
+# MindStack for Codex
 
-Use GPT Researcher from Codex via MCP.
+Use MindStack from Codex via MCP.
 
 ## When to use
-- When you need gpt-researcher capabilities in your Codex workflow
+- When you need mindstack capabilities in your Codex workflow
 - See https://github.com/assafelovic/gpt-researcher for full setup instructions

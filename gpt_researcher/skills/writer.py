@@ -1,4 +1,4 @@
-"""Report generator skill for GPT Researcher.
+"""Report generator skill for MindStack.
 
 This module provides the ReportGenerator class that handles report
 writing, including introductions, conclusions, and subtopic management.

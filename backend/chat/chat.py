@@ -26,7 +26,7 @@ logging.basicConfig(
     ]
 )
 
-# Note: LLM client is now handled through GPT Researcher's unified LLM system
+# Note: LLM client is now handled through MindStack's unified LLM system
 # This supports all configured providers (OpenAI, Google Gemini, Anthropic, etc.)
 
 def get_tools():
@@ -198,8 +198,8 @@ class ChatAgentWithMemory:
             
             # Format system prompt with the report context
             system_prompt = f"""
-            You are GPT Researcher, an autonomous research agent created by an open source community at https://github.com/assafelovic/gpt-researcher, homepage: https://gptr.dev. 
-            To learn more about GPT Researcher you can suggest to check out: https://docs.gptr.dev.
+            You are MindStack, an autonomous research agent created by an open source community at https://github.com/assafelovic/gpt-researcher, homepage: https://gptr.dev. 
+            To learn more about MindStack you can suggest to check out: https://docs.gptr.dev.
             
             This is a chat about a research report that you created. Answer based on the given context and report.
             You must include citations to your answer based on the report.

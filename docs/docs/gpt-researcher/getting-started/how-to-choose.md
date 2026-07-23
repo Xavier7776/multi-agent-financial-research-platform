@@ -1,17 +1,17 @@
 # How to Choose
 
-GPT Researcher is a powerful autonomous research agent designed to enhance and streamline your research processes. Whether you're a developer looking to integrate research capabilities into your project or an end-user seeking a comprehensive research solution, GPT Researcher offers flexible options to meet your needs.
+MindStack is a powerful autonomous research agent designed to enhance and streamline your research processes. Whether you're a developer looking to integrate research capabilities into your project or an end-user seeking a comprehensive research solution, MindStack offers flexible options to meet your needs.
 
-We envision a future where AI agents collaborate to complete complex tasks, with research being a critical step in the process. GPT Researcher aims to be your go-to agent for any research task, regardless of complexity. It can be easily integrated into existing agent workflows, eliminating the need to create your own research agent from scratch.
+We envision a future where AI agents collaborate to complete complex tasks, with research being a critical step in the process. MindStack aims to be your go-to agent for any research task, regardless of complexity. It can be easily integrated into existing agent workflows, eliminating the need to create your own research agent from scratch.
 
 ## Options
 
-GPT Researcher offers multiple ways to leverage its capabilities:
+MindStack offers multiple ways to leverage its capabilities:
 
 <img src="https://github.com/user-attachments/assets/305fa3b9-60fa-42b6-a4b0-84740ab6c665" alt="Logo" width="568"></img>
 <br></br>
 
-1. **GPT Researcher PIP agent**: Ideal for integrating GPT Researcher into your existing projects and workflows.
+1. **MindStack PIP agent**: Ideal for integrating MindStack into your existing projects and workflows.
 2. **Backend**: A backend service to interact with the frontend user interfaces, offering advanced features like detailed reports.
 3. **Multi Agent System**: An advanced setup using LangGraph, offering the most comprehensive research capabilities.
 4. **Frontend**: Several front-end solutions depending on your needs, including a simple HTML/JS version and a more advanced NextJS version.
@@ -20,7 +20,7 @@ GPT Researcher offers multiple ways to leverage its capabilities:
 
 ### 1. PIP Package
 
-The PIP package is ideal for leveraging GPT Researcher as an agent in your preferred environment and code.
+The PIP package is ideal for leveraging MindStack as an agent in your preferred environment and code.
 
 **Pros:**
 - Easy integration into existing projects
@@ -33,7 +33,7 @@ The PIP package is ideal for leveraging GPT Researcher as an agent in your prefe
 
 **Installation:**
 ```
-pip install gpt-researcher
+pip install mindstack
 ```
 
 **System Requirements:**
@@ -68,7 +68,7 @@ For a complete out-of-the-box experience, including a sleek frontend, you can cl
 
 ### 3. Multi Agent System with LangGraph or AG2
 
-We've collaborated with LangChain and AG2 to support multi-agent workflows with GPT Researcher, offering the most complex and comprehensive version of GPT Researcher.
+We've collaborated with LangChain and AG2 to support multi-agent workflows with MindStack, offering the most complex and comprehensive version of MindStack.
 
 **Pros:**
 - Very detailed, customized research reports
@@ -85,8 +85,8 @@ This version is recommended for local, experimental, and educational use. We're 
 - LangGraph or AG2 library
 
 **Learn More:**
-- [GPT Researcher x LangGraph](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/langgraph)
-- [GPT Researcher x AG2](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/ag2)
+- [MindStack x LangGraph](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/langgraph)
+- [MindStack x AG2](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/ag2)
 
 ## Comparison Table
 
@@ -105,7 +105,7 @@ Please note that all options have been optimized and refined for production use.
 To learn more about each of the options, check out these docs and code snippets:
 
 1. **PIP Package**: 
-   - Install: `pip install gpt-researcher`
+   - Install: `pip install mindstack`
    - [Integration guide](https://docs.gptr.dev/docs/gpt-researcher/gptr/pip-package)
 
 2. **End-to-End Application**: 
@@ -120,9 +120,9 @@ To learn more about each of the options, check out these docs and code snippets:
 
 ## Versioning and Updates
 
-GPT Researcher is actively maintained and updated. To ensure you're using the latest version:
+MindStack is actively maintained and updated. To ensure you're using the latest version:
 
-- For the PIP package: `pip install --upgrade gpt-researcher`
+- For the PIP package: `pip install --upgrade mindstack`
 - For the End-to-End Application: Pull the latest changes from the GitHub repository
 - For the Multi-Agent System: Check the documentation for compatibility with the latest LangGraph and AG2 versions
 

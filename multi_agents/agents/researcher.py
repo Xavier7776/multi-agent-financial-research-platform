@@ -71,9 +71,9 @@ class ResearchAgent:
                     and len(ticker) in (5, 6)
                 )
                 if is_ashare:
-                    tool = XueqiuDataTool(ticker)
+                    tool = XueqiuDataTool(ticker, task=task)
                 else:
-                    tool = FinancialDataTool(ticker)
+                    tool = FinancialDataTool(ticker, task=task)
                 overview, statements, peers = await asyncio.gather(
                     tool.get_stock_overview(),
                     tool.get_financial_statements(),
@@ -95,12 +95,8 @@ class ResearchAgent:
                     }
                     industry_peers = peers
 
-                    # --- LLM 生成同行列表（peers 为空时）---
-                    if not industry_peers and is_ashare:
-                        industry_peers = await self._get_peers_via_llm(
-                            overview, task, XueqiuDataTool
-                        )
-                    # ----------------------------------------
+                    # 注：LLM 兜底已下沉到 PeerResolver 内部（peers.py），
+                    # 不再需要在上层根据 is_ashare 不对称触发。
 
                     # 追加金融提示到 query
                     name = overview.get("name", ticker)
@@ -177,76 +173,8 @@ class ResearchAgent:
             logger.debug(f"LLM ticker extraction failed: {e}")
             return None
 
-    async def _get_peers_via_llm(self, overview: dict, task: dict, ToolClass) -> list[dict]:
-        """LLM 生成 2-3 个同行 ticker，然后查雪球拿 PE/PB/ROE。
-
-        Args:
-            overview: get_stock_overview 返回的 dict
-            task: 任务配置 dict
-            ToolClass: XueqiuDataTool 或 FinancialDataTool 类
-
-        Returns:
-            [{"ticker":"000858","name":"五粮液","pe":15.2,...}, ...]
-        """
-        name = overview.get("name", "")
-        sector = overview.get("sector", "")
-        industry = overview.get("industry", "")
-        ticker = overview.get("ticker", "")
-
-        prompt = [
-            {
-                "role": "system",
-                "content": (
-                    "你是一个金融行业分析师。根据公司信息，列出 2-3 家同行业可比公司"
-                    "的股票代码。只返回 JSON。"
-                ),
-            },
-            {
-                "role": "user",
-                "content": (
-                    f"公司：{name}（{ticker}）\n"
-                    f"行业：{sector} / {industry}\n"
-                    f"请返回 2-3 家同行业对手的股票代码。"
-                    f"返回 JSON：{{\"peers\": [\"600519\", \"000858\", ...]}}"
-                    f"代码必须是标准的 6 位 A 股数字或美股字母代码。"
-                    f"只返回 JSON，不要解释。"
-                ),
-            },
-        ]
-        try:
-            response = await call_model(prompt, task.get("model"), response_format="json")
-            import json
-            data = json.loads(response) if isinstance(response, str) else response
-            peer_tickers = data.get("peers", []) if isinstance(data, dict) else []
-
-            # 逐个查雪球
-            peers = []
-            for pt in peer_tickers[:3]:
-                try:
-                    p_tool = ToolClass(str(pt))
-                    p_ov = await p_tool.get_stock_overview()
-                    if p_ov and p_ov.get("name"):
-                        peers.append({
-                            "ticker": str(pt),
-                            "name": p_ov.get("name", ""),
-                            "pe": p_ov.get("pe_ratio"),
-                            "pb": p_ov.get("pb_ratio"),
-                            "roe": p_ov.get("roe"),
-                            "revenue_growth": p_ov.get("revenue_growth"),
-                        })
-                except Exception:
-                    continue
-
-            if peers:
-                print_agent_output(
-                    f"LLM 生成同行列表: {[p['ticker'] for p in peers]} | "
-                    f"PE: {[p['pe'] for p in peers]}",
-                    agent="RESEARCHER",
-                )
-            return peers
-        except Exception as e:
-            logger.debug(f"LLM peer generation failed: {e}")
-            return []
+    # 注：_get_peers_via_llm 已下沉到 multi_agents/components/peers.py 的 LLMPeerSource。
+    # researcher 不再关心 peers 来源，统一通过 tool.get_industry_peers() 拿结果。
 
     async def run_depth_research(self, draft_state: dict):
         task = draft_state.get("task")

@@ -2,7 +2,7 @@
 
 ## Automated Testing with Github Actions
 
-This repository contains the code for the automated testing of the GPT-Researcher Repo using Github Actions. 
+This repository contains the code for the automated testing of the MindStack Repo using Github Actions. 
 
 The tests are triggered in a docker container which runs the tests via the `pytest` module.
 

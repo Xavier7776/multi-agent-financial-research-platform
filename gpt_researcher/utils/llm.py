@@ -1,4 +1,4 @@
-"""LLM utilities for GPT Researcher.
+"""LLM utilities for MindStack.
 
 This module provides utility functions for interacting with various
 LLM providers through a unified interface.

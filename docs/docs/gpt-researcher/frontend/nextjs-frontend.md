@@ -1,11 +1,11 @@
 # NextJS Frontend
 
-This frontend project aims to enhance the user experience of GPT Researcher, providing an intuitive and efficient interface for automated research. It offers two deployment options to suit different needs and environments.
+This frontend project aims to enhance the user experience of MindStack, providing an intuitive and efficient interface for automated research. It offers two deployment options to suit different needs and environments.
 
 #### Demo
 <iframe height="400" width="700" src="https://github.com/user-attachments/assets/092e9e71-7e27-475d-8c4f-9dddd28934a3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-View an in-depth Product Tutorial here: [GPT-Researcher Frontend Tutorial](https://www.youtube.com/watch?v=hIZqA6lPusk)
+View an in-depth Product Tutorial here: [MindStack Frontend Tutorial](https://www.youtube.com/watch?v=hIZqA6lPusk)
 
 
 ## NextJS Frontend App
@@ -14,7 +14,7 @@ The React app (located in the `frontend` directory) is our Frontend 2.0 which we
 
 It comes with loads of added features, such as: 
  - a drag-n-drop user interface for uploading and deleting files to be used as local documents by GPTResearcher.
- - a GUI for setting your GPTR environment variables.
+ - a GUI for setting your mindstack environment variables.
  - the ability to trigger the multi_agents flow via the Backend Module or Langgraph Cloud Host (currently in closed beta).
  - stability fixes
  - and more coming soon!
@@ -42,7 +42,7 @@ docker compose up --build
 
 Visit localhost:3000 on any browser and enjoy researching!
 
-If, for some reason, you don't want to run the GPTR API Server on localhost:8000, no problem! You can set the `NEXT_PUBLIC_GPTR_API_URL` environment variable in your `.env` file to the URL of your GPTR API Server.
+If, for some reason, you don't want to run the mindstack API Server on localhost:8000, no problem! You can set the `NEXT_PUBLIC_GPTR_API_URL` environment variable in your `.env` file to the URL of your mindstack API Server.
 
 For example:
 ```

@@ -1,4 +1,4 @@
-"""ModelsLab image generation provider for GPT Researcher.
+"""ModelsLab image generation provider for MindStack.
 
 This module provides image generation via ModelsLab's API, supporting
 Flux, SDXL, Stable Diffusion, and 50k+ community models.

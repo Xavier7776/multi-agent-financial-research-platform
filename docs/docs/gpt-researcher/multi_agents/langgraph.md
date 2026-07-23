@@ -113,7 +113,7 @@ The React app (located in `frontend` directory) is our Frontend 2.0 which we hop
 
 It comes with loads of added features, such as: 
  - a drag-n-drop user interface for uploading and deleting files to be used as local documents by GPTResearcher.
- - a GUI for setting your GPTR environment variables.
+ - a GUI for setting your mindstack environment variables.
  - the ability to trigger the multi_agents flow via the Backend Module or Langgraph Cloud Host (currently in closed beta).
  - stability fixes
  - and more coming soon!

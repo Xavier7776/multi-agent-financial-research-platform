@@ -44,8 +44,8 @@ services:
     ports:
       - 3000:3000
 
-  gpt-researcher-tests:
-    image: gptresearcher/gpt-researcher-tests
+  mindstack-tests:
+    image: mindstack/mindstack-tests
     build: ./
     environment: 
       OPENAI_API_KEY: ${OPENAI_API_KEY}

@@ -2,12 +2,12 @@
 
 ## Intro
 
-You can either leverage the official GPTR Discord bot or create your own custom bot.
+You can either leverage the official mindstack Discord bot or create your own custom bot.
 
-To add the official GPTR Discord bot, simply [click here to invite GPTR to your Discord server](https://discord.com/oauth2/authorize?client_id=1281438963034361856&permissions=1689934339898432&integration_type=0&scope=bot).
+To add the official mindstack Discord bot, simply [click here to invite mindstack to your Discord server](https://discord.com/oauth2/authorize?client_id=1281438963034361856&permissions=1689934339898432&integration_type=0&scope=bot).
 
 
-## To create your own discord bot with GPTR functionality
+## To create your own discord bot with mindstack functionality
 
 Add a .env file in the root of the project and add the following:
 

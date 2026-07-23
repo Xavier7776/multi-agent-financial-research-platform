@@ -15,7 +15,7 @@ class XquikSearch:
     Xquik X/Twitter search retriever.
 
     Searches tweets via the Xquik REST API and returns results in the
-    standard {title, href, body} format used by all GPT Researcher retrievers.
+    standard {title, href, body} format used by all MindStack retrievers.
 
     Set XQUIK_API_KEY in your environment. Get one at https://xquik.com
     """

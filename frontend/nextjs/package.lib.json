@@ -1,6 +1,6 @@
 {
-  "name": "gpt-researcher-ui",
-  "description": "GPT Researcher frontend as a React component",
+  "name": "mindstack-ui",
+  "description": "MindStack frontend as a React component",
   "version": "0.1.74",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

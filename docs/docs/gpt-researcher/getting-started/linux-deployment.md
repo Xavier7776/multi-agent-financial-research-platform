@@ -1,6 +1,6 @@
 # Running on Linux
 
-This guide will walk you through the process of deploying GPT Researcher on a Linux server.
+This guide will walk you through the process of deploying MindStack on a Linux server.
 
 ## Server Requirements
 

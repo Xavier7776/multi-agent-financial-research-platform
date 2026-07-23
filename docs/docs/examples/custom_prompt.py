@@ -1,5 +1,5 @@
 """
-Custom Prompt Example for GPT Researcher
+Custom Prompt Example for MindStack
 
 This example demonstrates how to use the custom_prompt parameter to customize report generation
 based on specific formatting requirements or content needs.
@@ -15,7 +15,7 @@ from gpt_researcher import GPTResearcher
 
 
 async def custom_report_example():
-    """Demonstrate various custom prompt examples with GPT Researcher."""
+    """Demonstrate various custom prompt examples with MindStack."""
     
     # Define your research query
     query = "What are the latest advancements in renewable energy?"

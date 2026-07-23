@@ -1,10 +1,10 @@
 # AG2
 
 [AG2](https://github.com/ag2ai/ag2) is a framework for building multi-agent applications with LLMs.
-This example uses AG2 to orchestrate the GPT Researcher multi-agent workflow.
+This example uses AG2 to orchestrate the MindStack multi-agent workflow.
 
 Check out our blog posts:
-- [Deep Web Research with AG2 and GPT Researcher](https://docs.ag2.ai/latest/docs/blog/#deep-web-research-with-ag2-and-gpt-researcher) (AG2 Blog)
+- [Deep Web Research with AG2 and MindStack](https://docs.ag2.ai/latest/docs/blog/#deep-web-research-with-ag2-and-gpt-researcher) (AG2 Blog)
 
 ## Use case
 By using AG2, the research process can be significantly improved in depth and quality by leveraging multiple agents with specialized skills.

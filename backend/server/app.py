@@ -88,7 +88,7 @@ async def lifespan(app: FastAPI):
     else:
         logger.warning(f"Frontend directory not found: {frontend_path}")
     
-    logger.info("GPT Researcher API ready - local mode (no database persistence)")
+    logger.info("MindStack API ready - local mode (no database persistence)")
     yield
     # Shutdown
     logger.info("Research API shutting down")
@@ -181,7 +181,7 @@ async def serve_multi_agents():
 
 @app.get("/.well-known/agent-discovery.json")
 async def agent_discovery(request: Request):
-    """Advertise GPT Researcher services via the Agent Discovery Protocol."""
+    """Advertise MindStack services via the Agent Discovery Protocol."""
     origin = str(request.base_url).rstrip("/")
     domain = request.url.hostname or request.headers.get("host", "")
     contact = os.getenv("AGENT_DISCOVERY_CONTACT")

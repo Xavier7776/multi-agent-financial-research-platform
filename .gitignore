@@ -48,7 +48,10 @@ logs/
 *.orig
 *.log
 server_log.txt
-
+.claude/
+.codex-plugin/
+.github/
+.idea -副本/
 #Cursor Rules
 .cursorrules
 CURSOR_RULES.md

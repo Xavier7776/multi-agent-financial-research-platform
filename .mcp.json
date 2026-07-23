@@ -1,9 +1,9 @@
 {
   "mcpServers": {
-    "gpt-researcher": {
+    "mindstack": {
       "command": "uvx",
       "args": [
-        "gpt-researcher"
+        "mindstack"
       ]
     }
   }

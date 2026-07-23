@@ -1,6 +1,6 @@
 # Azure Storage
 
-If you want to use Azure Blob Storage as the source for your GPT Researcher report context, follow these steps:
+If you want to use Azure Blob Storage as the source for your MindStack report context, follow these steps:
 
 > **Step 1** - Set these environment variables with a .env file in the root folder
 

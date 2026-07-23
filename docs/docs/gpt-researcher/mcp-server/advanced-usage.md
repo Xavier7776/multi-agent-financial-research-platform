@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Advanced Usage
 
-This guide covers advanced usage scenarios and configurations for the GPT Researcher MCP Server.
+This guide covers advanced usage scenarios and configurations for the MindStack MCP Server.
 
 ## Custom Configuration
 
@@ -226,6 +226,6 @@ def clean_memory():
 
 - Explore [integrating with your own applications](../frontend/introduction)
 - Learn about [creating custom agents](../multi_agents/langgraph) to enhance research capabilities
-- Contribute to the [GPT Researcher project](../../contribute)
+- Contribute to the [MindStack project](../../contribute)
 
 :-) 

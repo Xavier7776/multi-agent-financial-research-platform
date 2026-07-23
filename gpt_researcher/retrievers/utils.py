@@ -1,4 +1,4 @@
-"""Utility functions for GPT Researcher retrievers.
+"""Utility functions for MindStack retrievers.
 
 This module provides helper functions and constants used by the
 various search retriever implementations.

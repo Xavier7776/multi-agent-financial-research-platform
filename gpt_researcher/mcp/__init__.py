@@ -1,5 +1,5 @@
 """
-MCP (Model Context Protocol) Integration for GPT Researcher
+MCP (Model Context Protocol) Integration for MindStack
 
 This module provides comprehensive MCP integration including:
 - Client management for MCP servers

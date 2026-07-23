@@ -21,7 +21,7 @@ class MCPClientManager:
     Manages MCP client lifecycle and configuration.
     
     Responsible for:
-    - Converting GPT Researcher MCP configs to langchain format
+    - Converting MindStack MCP configs to langchain format
     - Creating and managing MultiServerMCPClient instances
     - Handling client cleanup and resource management
     """
@@ -31,7 +31,7 @@ class MCPClientManager:
         Initialize the MCP client manager.
         
         Args:
-            mcp_configs: List of MCP server configurations from GPT Researcher
+            mcp_configs: List of MCP server configurations from MindStack
         """
         self.mcp_configs = mcp_configs or []
         self._client = None
@@ -39,7 +39,7 @@ class MCPClientManager:
 
     def convert_configs_to_langchain_format(self) -> Dict[str, Dict[str, Any]]:
         """
-        Convert GPT Researcher MCP configs to langchain-mcp-adapters format.
+        Convert MindStack MCP configs to langchain-mcp-adapters format.
         
         Returns:
             Dict[str, Dict[str, Any]]: Server configurations for MultiServerMCPClient

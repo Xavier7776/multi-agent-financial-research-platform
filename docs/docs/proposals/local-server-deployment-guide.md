@@ -1,4 +1,4 @@
-# GPT-Researcher 本地服务器部署规划指南
+# MindStack 本地服务器部署规划指南
 
 ## 目录
 

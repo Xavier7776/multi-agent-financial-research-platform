@@ -1,1 +1,1 @@
-"""AG2-powered multi-agent example for GPT Researcher."""
+"""AG2-powered multi-agent example for MindStack."""
