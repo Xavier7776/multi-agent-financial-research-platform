@@ -2,7 +2,7 @@
 
 Ollama is a platform that allows you to deploy and manage custom language models. This guide will walk you through deploying a custom language model on Ollama.
 
-Read on to understand how to install a Custom LLM with the Ollama WebUI, and how to query it with GPT-Researcher.
+Read on to understand how to install a Custom LLM with the Ollama WebUI, and how to query it with MindStack.
 
 
 ## Fetching the Desired LLM Models
@@ -17,12 +17,12 @@ Paste the model name & size into the Web UI:
 
 For our example, let's choose to download the `qwen2:1.5b` from the chat completion model & `nomic-embed-text` for the embeddings model.
 
-This model now automatically becomes available via your Server's out-of-the-box API - we'll leverage it within our GPT-Researcher .env file in the next step.
+This model now automatically becomes available via your Server's out-of-the-box API - we'll leverage it within our MindStack .env file in the next step.
 
 
-## Querying your Custom LLM with GPT-Researcher
+## Querying your Custom LLM with MindStack
 
-If you deploy ollama locally, a .env like so, should enable powering GPT-Researcher with Ollama:
+If you deploy ollama locally, a .env like so, should enable powering MindStack with Ollama:
 
 ```bash
 OPENAI_API_KEY="123"
@@ -45,7 +45,7 @@ Elestio is a platform that allows you to deploy and manage custom language model
 You can deploy an [Open WebUI](https://github.com/open-webui/open-webui/tree/main) server with [Elestio](https://elest.io/open-source/ollama)
 
 
-## Run LLM Test Script for GPTR
+## Run LLM Test Script for mindstack
 
 You can leverage the global `test-your-llm` function with `tests/test-your-llm`.
 Here are the steps to do so:

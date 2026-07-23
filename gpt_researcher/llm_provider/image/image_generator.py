@@ -1,4 +1,4 @@
-"""Image generation provider for GPT Researcher.
+"""Image generation provider for MindStack.
 
 This module provides image generation capabilities using Google's Gemini/Imagen
 models via the google.genai SDK.
@@ -166,7 +166,7 @@ class ImageGeneratorProvider:
         """
         # Style-specific color palettes
         if style == "dark":
-            # Dark mode matching the GPT Researcher app theme
+            # Dark mode matching the MindStack app theme
             style_instructions = """
 STYLE REQUIREMENTS - DARK MODE THEME:
 - Dark background (#0d1117 or similar deep charcoal/navy)

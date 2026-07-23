@@ -5,11 +5,11 @@ sidebar_position: 5
 
 # 🍌 Inline Image Generation
 
-GPT Researcher supports **inline image generation** for research reports using Google's Gemini image generation models (Nano Banana). This feature creates contextually relevant illustrations that are embedded directly within your research reports.
+MindStack supports **inline image generation** for research reports using Google's Gemini image generation models (Nano Banana). This feature creates contextually relevant illustrations that are embedded directly within your research reports.
 
 ## Overview
 
-When enabled, GPT Researcher will:
+When enabled, MindStack will:
 1. **Analyze research context** after gathering information to identify visualization opportunities
 2. **Pre-generate images** before writing the report (for seamless UX)
 3. **Embed images inline** as the report is written - no post-processing delays!
@@ -116,7 +116,7 @@ Research Phase          Image Planning          Report Writing
 
 ### Dark Mode (Default)
 
-Images are generated with styling that matches the GPT Researcher UI:
+Images are generated with styling that matches the MindStack UI:
 - Dark background (`#0d1117`)
 - Teal/cyan accents (`#14b8a6`)
 - Glowing, futuristic aesthetic

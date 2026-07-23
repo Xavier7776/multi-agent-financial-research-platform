@@ -1,4 +1,4 @@
-declare module 'gpt-researcher-ui' {
+declare module 'mindstack-ui' {
   import React from 'react';
 
   export interface GPTResearcherProps {

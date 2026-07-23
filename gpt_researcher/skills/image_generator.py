@@ -1,4 +1,4 @@
-"""Image generator skill for GPT Researcher.
+"""Image generator skill for MindStack.
 
 This module provides the ImageGenerator class that handles generating
 contextually relevant images for research reports using AI image generation.

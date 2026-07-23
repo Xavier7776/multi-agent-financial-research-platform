@@ -2,17 +2,17 @@
 [![PyPI version](https://badge.fury.io/py/gpt-researcher.svg)](https://badge.fury.io/py/gpt-researcher)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/assafelovic/gpt-researcher/blob/master/docs/docs/examples/pip-run.ipynb)
 
-🌟 **Exciting News!** Now, you can integrate `gpt-researcher` with your apps seamlessly!
+🌟 **Exciting News!** Now, you can integrate `mindstack` with your apps seamlessly!
 
-## Steps to Install GPT Researcher
+## Steps to Install MindStack
 
 Follow these easy steps to get started:
 
 0. **Pre-requisite**: Ensure Python 3.10+ is installed on your machine 💻
-1. **Install gpt-researcher**: Grab the official package from [PyPi](https://pypi.org/project/gpt-researcher/).
+1. **Install mindstack**: Grab the official package from [PyPi](https://pypi.org/project/gpt-researcher/).
 
 ```bash
-pip install gpt-researcher
+pip install mindstack
 ```
 
 2. **Environment Variables:** Create a .env file with your OpenAI API key or simply export it
@@ -25,7 +25,7 @@ export OPENAI_API_KEY={Your OpenAI API Key here}
 export TAVILY_API_KEY={Your Tavily API Key here}
 ```
 
-3. **Start using GPT Researcher in your own codebase**
+3. **Start using MindStack in your own codebase**
 
 ## Example Usage
 
@@ -170,7 +170,7 @@ curl -X GET "http://localhost:5000/report/research_report?query=what team may wi
 ```
 
 ## Getters and Setters
-GPT Researcher provides several methods to retrieve additional information about the research process:
+MindStack provides several methods to retrieve additional information about the research process:
 
 ### Get Research Sources
 Sources are the URLs that were used to gather information for the research.
@@ -317,4 +317,4 @@ similar_contents = await researcher.get_similar_written_contents_by_draft_sectio
 )
 ```
 
-This comprehensive documentation should help users understand and utilize the full capabilities of the GPT Researcher package.
+This comprehensive documentation should help users understand and utilize the full capabilities of the MindStack package.

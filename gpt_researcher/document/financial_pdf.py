@@ -1,4 +1,4 @@
-"""Financial PDF Document Loader for GPT Researcher.
+"""Financial PDF Document Loader for MindStack.
 
 This module provides FinancialPDFLoader, a specialized document loader
 for financial reports, earnings statements, and annual filings in PDF format.
@@ -34,7 +34,7 @@ class FinancialPDFLoader:
     - Page-by-page text extraction with PyMuPDF (fitz)
     - Financial statement type detection (income statement, balance sheet, cash flow)
     - Key metric extraction via regex (revenue, net income, EPS, total assets, etc.)
-    - Standard GPT Researcher document format output
+    - Standard MindStack document format output
     """
 
     # Financial statement type keywords for section detection

@@ -1,10 +1,10 @@
 # MCP Integration
 
-The Model Context Protocol (MCP) enables GPT Researcher to connect with diverse data sources and tools through a standardized interface. GPT Researcher features an intelligent two-stage MCP approach that automatically selects the best tools and generates contextual research, powered by LangChain's [MCP adapters](https://github.com/langchain-ai/langchain-mcp-adapters) for seamless integration.
+The Model Context Protocol (MCP) enables MindStack to connect with diverse data sources and tools through a standardized interface. MindStack features an intelligent two-stage MCP approach that automatically selects the best tools and generates contextual research, powered by LangChain's [MCP adapters](https://github.com/langchain-ai/langchain-mcp-adapters) for seamless integration.
 
-## How MCP Works in GPT Researcher
+## How MCP Works in MindStack
 
-GPT Researcher uses a **two stage intelligent approach** for MCP integration:
+MindStack uses a **two stage intelligent approach** for MCP integration:
 
 1. **Stage 1: Smart Tool Selection** - LLM analyzes your query and available MCP servers to select the most relevant tools
 2. **Stage 2: Contextual Research** - LLM uses selected tools with dynamically generated, query specific arguments
@@ -21,7 +21,7 @@ The following diagram illustrates the hybrid strategy using `RETRIEVER=tavily,mc
 
 1. **Configuration**: Set `RETRIEVER` environment variable to enable MCP
 2. **Strategy Selection**: Choose pure MCP or hybrid approach
-3. **Initialization**: GPT Researcher loads your `mcp_configs`
+3. **Initialization**: MindStack loads your `mcp_configs`
 4. **Stage 1**: LLM intelligently selects the most relevant tools from available MCP servers
 5. **Stage 2**: LLM executes research using selected tools with query-specific arguments
 6. **Hybrid Processing**: If using hybrid strategy, combines MCP results with web search
@@ -29,16 +29,16 @@ The following diagram illustrates the hybrid strategy using `RETRIEVER=tavily,mc
 
 ## Prerequisites
 
-MCP support is included with GPT Researcher installation:
+MCP support is included with MindStack installation:
 
 ```bash
-pip install gpt-researcher
+pip install mindstack
 # All MCP dependencies are included automatically
 ```
 
 ## Essential Configuration: Enabling MCP
 
-**Important:** To use MCP with GPT Researcher, you must set the `RETRIEVER` environment variable:
+**Important:** To use MCP with MindStack, you must set the `RETRIEVER` environment variable:
 
 ### Pure MCP Research
 ```bash
@@ -231,7 +231,7 @@ researcher = GPTResearcher(
     ]
 )
 
-# GPT Researcher automatically orchestrates all servers
+# MindStack automatically orchestrates all servers
 context = await researcher.conduct_research()
 report = await researcher.write_report()
 
@@ -239,7 +239,7 @@ print(f"Generated comprehensive report using {len(researcher.mcp_configs)} MCP s
 print(f"Research cost: ${researcher.get_costs():.4f}")
 ```
 
-This example demonstrates how GPT Researcher intelligently:
+This example demonstrates how MindStack intelligently:
 - **Selects relevant tools** from each server based on the query
 - **Coordinates multi-domain research** across financial, news, technical, and academic sources
 - **Synthesizes information** from different domains into a cohesive analysis
@@ -473,7 +473,7 @@ researcher = GPTResearcher(
 
 ### Connection Type Detection
 
-GPT Researcher automatically detects connection types:
+MindStack automatically detects connection types:
 
 ```python
 # WebSocket (detected from wss:// prefix)
@@ -571,4 +571,4 @@ print(f"✅ MCP configs loaded: {len(researcher.mcp_configs)}")
 
 ---
 
-*For more examples and advanced use cases, check out the [GPT Researcher examples repository](https://github.com/assafelovic/gpt-researcher/tree/master/examples).* :-) 
+*For more examples and advanced use cases, check out the [MindStack examples repository](https://github.com/assafelovic/gpt-researcher/tree/master/examples).* :-) 

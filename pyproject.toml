@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "gpt-researcher"
+name = "mindstack"
 version = "0.14.7"
-description = "GPT Researcher is an autonomous agent designed for comprehensive online research on a variety of tasks."
+description = "MindStack is an autonomous agent designed for comprehensive online research on a variety of tasks."
 authors = ["Assaf Elovic <assaf.elovic@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -59,12 +59,12 @@ python_files = "test_*.py"
 asyncio_fixture_loop_scope = "function"
 
 [tool.uv.sources]
-gpt-researcher = { workspace = true }
+mindstack = { workspace = true }
 
 [project]
-name = "gpt-researcher"
+name = "mindstack"
 version = "0.14.7"
-description = "GPT Researcher is an autonomous agent designed for comprehensive online research on a variety of tasks."
+description = "MindStack is an autonomous agent designed for comprehensive online research on a variety of tasks."
 authors = [{ name = "Assaf Elovic", email = "assaf.elovic@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"

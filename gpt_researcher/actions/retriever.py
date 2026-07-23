@@ -1,4 +1,4 @@
-"""Retriever factory and utilities for GPT Researcher.
+"""Retriever factory and utilities for MindStack.
 
 This module provides functions to instantiate and manage various
 search retriever implementations.

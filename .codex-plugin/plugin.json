@@ -1,5 +1,5 @@
 {
-  "name": "gpt-researcher",
+  "name": "mindstack",
   "version": "0.1.0",
   "description": "Autonomous deep research from Codex via MCP",
   "author": {
@@ -14,7 +14,7 @@
   ],
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "GPT Researcher",
+    "displayName": "MindStack",
     "shortDescription": "Autonomous deep research from Codex via MCP",
     "longDescription": "An autonomous agent that conducts deep research on any data using any LLM providers.",
     "category": "Research",

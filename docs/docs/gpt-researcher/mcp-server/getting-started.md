@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # Getting Started
 
-The GPT Researcher MCP Server provides Model Context Protocol (MCP) integration for GPT Researcher, allowing AI assistants to perform autonomous, comprehensive web research and generate reports via the MCP protocol.
+The MindStack MCP Server provides Model Context Protocol (MCP) integration for MindStack, allowing AI assistants to perform autonomous, comprehensive web research and generate reports via the MCP protocol.
 
-## Why GPT Researcher MCP?
+## Why MindStack MCP?
 
-While many AI apps can access web search tools with MCP, GPT Researcher MCP delivers in-depth results. Standard search tools return raw results requiring manual filtering, often containing irrelevant sources and wasting context window space.
+While many AI apps can access web search tools with MCP, MindStack MCP delivers in-depth results. Standard search tools return raw results requiring manual filtering, often containing irrelevant sources and wasting context window space.
 
-GPT Researcher performs autonomous, deep research - not just search. It intelligently explores and validates multiple sources, focusing only on relevant and up-to-date information. Though slightly slower (30-40 seconds) than standard search, it delivers higher quality information, optimized context, comprehensive results, and better reasoning for LLMs.
+MindStack performs autonomous, deep research - not just search. It intelligently explores and validates multiple sources, focusing only on relevant and up-to-date information. Though slightly slower (30-40 seconds) than standard search, it delivers higher quality information, optimized context, comprehensive results, and better reasoning for LLMs.
 
 The MCP server exposes the following capabilities to AI assistants:
 
@@ -40,7 +40,7 @@ Before running the MCP server, make sure you have:
 
 ## Installation
 
-1. Clone the GPT Researcher repository:
+1. Clone the MindStack repository:
 ```bash
 git clone https://github.com/assafelovic/gptr-mcp.git
 ```
@@ -142,7 +142,7 @@ If you encounter issues while running the MCP server:
 ## Next Steps
 
 - Explore the [MCP protocol documentation](https://docs.anthropic.com/claude/docs/model-context-protocol) to better understand how to integrate with Claude
-- Learn about [GPT Researcher's core features](../getting-started/introduction) to enhance your research capabilities
+- Learn about [MindStack's core features](../getting-started/introduction) to enhance your research capabilities
 - Check out the [Advanced Usage](./advanced-usage) guide for more configuration options
 
 :-) 

@@ -1,4 +1,4 @@
-"""Agent creation and selection utilities for GPT Researcher.
+"""Agent creation and selection utilities for MindStack.
 
 This module provides functions to automatically select and configure
 the appropriate research agent based on the query type.

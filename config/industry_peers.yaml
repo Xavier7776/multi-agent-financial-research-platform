@@ -1,0 +1,61 @@
+# 行业 → 可比公司映射（按 FMP profile.industry 字段分组）
+# 同一行业的任何股票自动获得同行；ticker 不在此表中的股票由 PeerResolver 降级到 FMP API / LLM。
+
+# 消费电子
+"Consumer Electronics": [AAPL, SONO, HEAR, VUZI, GPRO]
+
+# 软件
+"Software—Infrastructure": [MSFT, ORCL, CRM, ADBE, PANW]
+"Software—Application": [ADBE, CRM, INTU, NOW, WDAY]
+
+# 互联网
+"Internet Content & Information": [GOOGL, META, SNAP, PINS, BIDU]
+"Internet Retail": [AMZN, JD, BABA, ETSY, W]
+
+# 半导体
+"Semiconductors": [NVDA, AMD, INTC, QCOM, AVGO]
+"Semiconductor Equipment & Materials": [ASML, AMAT, LRCX, KLAC, TSM]
+
+# 汽车
+"Auto Manufacturers": [TSLA, F, GM, TM, RIVN]
+
+# 娱乐/传媒
+"Entertainment": [NFLX, DIS, WBD, CMCSA, SPOT]
+
+# 银行
+"Banks—Diversified": [JPM, BAC, WFC, C, GS]
+
+# 医药
+"Drug Manufacturers—General": [JNJ, PFE, MRK, ABBV, LLY]
+
+# 零售
+"Discount Stores": [WMT, COST, TGT, DG, DLTR]
+
+# 支付
+"Credit Services": [V, MA, AXP, PYPL, SQ]
+"Financial Data & Stock Exchanges": [SPGI, MCO, MSCI, NDAQ, ICE]
+
+# 云计算/IT服务
+"Information Technology Services": [IBM, ACN, INFY, CTSH, DXC]
+
+# 电子制造/硬件
+"Computer Hardware": [DELL, HPQ, NTAP, SMCI, PSTG]
+
+# 饮料
+"Beverages—Non-Alcoholic": [KO, PEP, MNST, KDP, FIZZ]
+
+# 航空航天
+"Aerospace & Defense": [BA, LMT, RTX, NOC, GD]
+
+# 游戏
+"Electronic Gaming & Multimedia": [EA, TTWO, U, RBLX, PLTK]
+
+# A 股按行业分组（雪球 sector/industry 字段）
+"A股-消费电子": [000725, 002475, 002241, 000100, 600183]
+"A股-白酒": [600519, 000858, 002304, 000568, 600809]
+"A股-银行": [600036, 601318, 601166, 600000, 601398]
+"A股-证券": [600030, 601688, 000776, 600999, 601628]
+"A股-医药": [600276, 300760, 000538, 600436, 603259]
+"A股-新能源": [300750, 002594, 601012, 002129, 300274]
+"A股-家电": [000333, 000651, 600690, 002508, 000921]
+"A股-食品": [600887, 603288, 600872, 603345, 000895]

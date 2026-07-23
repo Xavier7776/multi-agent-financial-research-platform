@@ -1,4 +1,4 @@
-"""Tavily API search retriever for GPT Researcher.
+"""Tavily API search retriever for MindStack.
 
 This module provides the TavilySearch class for performing web searches
 using the Tavily API.

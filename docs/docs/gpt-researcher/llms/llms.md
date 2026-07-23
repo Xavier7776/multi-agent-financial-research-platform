@@ -1,7 +1,7 @@
 # Configure LLM
 
 As described in the [introduction](/docs/gpt-researcher/gptr/config), the default LLM and embedding is OpenAI due to its superior performance and speed. 
-With that said, GPT Researcher supports various open/closed source LLMs and embeddings, and you can easily switch between them by updating the `SMART_LLM`, `FAST_LLM` and `EMBEDDING` env variables. You might also need to include the provider API key and corresponding configuration params.
+With that said, MindStack supports various open/closed source LLMs and embeddings, and you can easily switch between them by updating the `SMART_LLM`, `FAST_LLM` and `EMBEDDING` env variables. You might also need to include the provider API key and corresponding configuration params.
 
 Current supported LLMs are `openai`, `anthropic`, `azure_openai`, `cohere`, `google_vertexai`, `google_genai`, `fireworks`, `ollama`, `together`, `mistralai`, `huggingface`, `groq`, `bedrock`, `litellm` and `minimax`.
 
@@ -9,7 +9,7 @@ Current supported embeddings are `openai`, `azure_openai`, `cohere`, `google_ver
 
 To learn more about support customization options see [here](/docs/gpt-researcher/gptr/config).
 
-**Please note**: GPT Researcher is optimized and heavily tested on GPT models. Some other models might run into context limit errors, and unexpected responses.
+**Please note**: MindStack is optimized and heavily tested on GPT models. Some other models might run into context limit errors, and unexpected responses.
 > **Token limits**: Modern long-output models (Claude 4.x, GPT-5)
 > require raising `SMART_TOKEN_LIMIT` and related variables above
 > their defaults to avoid truncated reports. See
@@ -81,7 +81,7 @@ Please then specify the model names/deployment names in your `.env` file.
 
 - Your endpoint can have any valid name.
 - A model's deployment name *must be the same* as the model name.
-- You need to deploy an *Embedding Model*: To ensure optimal performance, GPT Researcher requires the 'text-embedding-3-large' model. Please deploy this specific model to your Azure Endpoint.
+- You need to deploy an *Embedding Model*: To ensure optimal performance, MindStack requires the 'text-embedding-3-large' model. Please deploy this specific model to your Azure Endpoint.
 
 **Recommended**:
 
@@ -106,7 +106,7 @@ Add `langchain-azure-dynamic-sessions` to [requirements.txt](https://github.com/
 
 ## Ollama
 
-GPT Researcher supports both Ollama LLMs and embeddings. You can choose each or both.
+MindStack supports both Ollama LLMs and embeddings. You can choose each or both.
 To use [Ollama](http://www.ollama.com) you can set the following environment variables
 
 ```env
@@ -122,7 +122,7 @@ Add `langchain-ollama` to [requirements.txt](https://github.com/assafelovic/gpt-
 
 ### Granite with Ollama
 
-GPT Researcher has custom prompt formatting for the [Granite family of models](https://ollama.com/search?q=granite). To use
+MindStack has custom prompt formatting for the [Granite family of models](https://ollama.com/search?q=granite). To use
 the right formatting, you can set the following environment variables:
 
 ```env
@@ -136,7 +136,7 @@ PROMPT_FAMILY=granite
 ## Groq
 
 GroqCloud provides advanced AI hardware and software solutions designed to deliver amazingly fast AI inference performance.
-To leverage Groq in GPT-Researcher, you will need a GroqCloud account and an API Key. (__NOTE:__ Groq has a very _generous free tier_.)
+To leverage Groq in MindStack, you will need a GroqCloud account and an API Key. (__NOTE:__ Groq has a very _generous free tier_.)
 
 ### Sign up
 - You can signup here: [https://console.groq.com/login](https://console.groq.com/login)
@@ -146,7 +146,7 @@ To leverage Groq in GPT-Researcher, you will need a GroqCloud account and an API
 `GROQ_API_KEY=*********************`
 
 ### Update env vars
-And finally, you will need to configure the GPT-Researcher Provider and Model variables:
+And finally, you will need to configure the MindStack Provider and Model variables:
 
 ```env
 GROQ_API_KEY=[Your Key]

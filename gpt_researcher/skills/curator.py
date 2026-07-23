@@ -1,4 +1,4 @@
-"""Source curator skill for GPT Researcher.
+"""Source curator skill for MindStack.
 
 This module provides the SourceCurator class that evaluates and ranks
 research sources based on relevance, credibility, and reliability.

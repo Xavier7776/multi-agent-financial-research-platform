@@ -304,5 +304,5 @@ variable "webui_pipieline_credentials" {
 variable "cloudmap_service_name" {
   description = "CloudMap service name for service discovery (the part before .ggai)"
   type        = string
-  default     = "gpt-researcher"
+  default     = "mindstack"
 }

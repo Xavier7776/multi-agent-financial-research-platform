@@ -1,6 +1,6 @@
 # Visualizing Websockets
 
-The GPTR Frontend is powered by Websockets streaming back from the Backend. This allows for real-time updates on the status of your research tasks, as well as the ability to interact with the Backend directly from the Frontend.
+The mindstack Frontend is powered by Websockets streaming back from the Backend. This allows for real-time updates on the status of your research tasks, as well as the ability to interact with the Backend directly from the Frontend.
 
 
 ## Inspecting Websockets

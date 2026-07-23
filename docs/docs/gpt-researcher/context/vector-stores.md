@@ -1,10 +1,10 @@
 # Vector Stores
 
-The GPT Researcher package allows you to integrate with existing langchain vector stores that have been populated.
+The MindStack package allows you to integrate with existing langchain vector stores that have been populated.
 For a complete list of supported langchain vector stores, please refer to this [link](https://python.langchain.com/v0.2/docs/integrations/vectorstores/).
 
 You can create a set of embeddings and langchain documents and store them in any supported vector store of your choosing.
-GPT-Researcher will work with any langchain vector store that implements the `asimilarity_search` method.
+MindStack will work with any langchain vector store that implements the `asimilarity_search` method.
 
 **If you want to use the existing knowledge in your vector store, make sure to set `report_source="langchain_vectorstore"`. Any other settings will add additional information from scraped data and might contaminate your vectordb (See _How to add scraped data to your vector store_ for more context)**
 
@@ -125,7 +125,7 @@ report = await researcher.write_report()
 ```
 ## Adding Scraped Data to your vector store
 
-In some cases in which you want to store the scraped data and documents into your own vector store for future usages, GPT-Researcher also allows you to do so seamlessly just by inputting your vector store (make sure to set `report_source` value to something other than `langchain_vectorstore`)
+In some cases in which you want to store the scraped data and documents into your own vector store for future usages, MindStack also allows you to do so seamlessly just by inputting your vector store (make sure to set `report_source` value to something other than `langchain_vectorstore`)
 
 ```python
 from gpt_researcher import GPTResearcher

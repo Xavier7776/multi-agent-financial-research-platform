@@ -1,6 +1,6 @@
 # React Package
 
-The GPTR React package is an abstraction on top of the NextJS app meant to empower users to easily import the GPTR frontend into any React App. The package is [available on npm](https://www.npmjs.com/package/gpt-researcher-ui).
+The mindstack React package is an abstraction on top of the NextJS app meant to empower users to easily import the mindstack frontend into any React App. The package is [available on npm](https://www.npmjs.com/package/gpt-researcher-ui).
 
 
 ## Installation

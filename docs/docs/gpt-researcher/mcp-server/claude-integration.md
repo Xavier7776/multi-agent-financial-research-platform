@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Claude Desktop Integration
 
-This guide specifically focuses on how to integrate your locally running GPT Researcher MCP server with the Claude desktop application for Mac, providing a seamless research experience within the Claude interface.
+This guide specifically focuses on how to integrate your locally running MindStack MCP server with the Claude desktop application for Mac, providing a seamless research experience within the Claude interface.
 
 Check out the official Anthropic MCP docs [here](https://modelcontextprotocol.io/quickstart/user)
 
@@ -12,7 +12,7 @@ Check out the official Anthropic MCP docs [here](https://modelcontextprotocol.io
 
 Before integrating with Claude desktop client, you'll need:
 
-1. GPT Researcher MCP server installed and running locally
+1. MindStack MCP server installed and running locally
 2. Claude for Mac desktop application installed
 3. Administrative access to your Mac to modify configuration files
 
@@ -20,9 +20,9 @@ Before integrating with Claude desktop client, you'll need:
 
 To integrate your locally running MCP server with Claude for Mac, follow these steps:
 
-### 1. Install and Run the GPT Researcher MCP Server
+### 1. Install and Run the MindStack MCP Server
 
-Make sure you have the GPT Researcher MCP server installed and running:
+Make sure you have the MindStack MCP server installed and running:
 
 ```bash
 # Clone the repository (if you haven't already)
@@ -51,7 +51,7 @@ Verify that the server is running properly by checking the console output. The s
 
 2. **Edit the Configuration File**:
    - Open `claude_desktop_config.json` with a text editor
-   - Add or update the `mcpServers` section to include your local GPT Researcher MCP server:
+   - Add or update the `mcpServers` section to include your local MindStack MCP server:
 
 ```json
 {
@@ -85,10 +85,10 @@ Close and reopen the Claude application to apply the new configuration.
 
 Upon restarting:
 - Look for a hammer icon (🔨) in the bottom right corner of the input box in Claude
-- Clicking this icon should display the GPT Researcher tools provided by your MCP server
+- Clicking this icon should display the MindStack tools provided by your MCP server
 - If you don't see the hammer icon, check the Claude application logs for any errors
 
-## Using GPT Researcher in Claude Desktop
+## Using MindStack in Claude Desktop
 
 Once integrated, you can use research capabilities by:
 
@@ -128,5 +128,5 @@ If you encounter issues with the integration:
 ## Next Steps
 
 - Explore [advanced usage options](./advanced-usage) for customizing your research experience
-- Learn about [additional configuration options](../gptr/config) for the GPT Researcher
+- Learn about [additional configuration options](../gptr/config) for the MindStack
 - Check out [example prompts](./claude-integration#claude-specific-prompts) to effectively guide Claude in using the research tools

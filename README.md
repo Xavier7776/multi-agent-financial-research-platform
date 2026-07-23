@@ -1,4 +1,4 @@
-# FinAgent — Multi-Agent Financial Research System
+# MindStack — Multi-Agent Financial Research System
 
 <p align="center">
   <strong>输入一家公司名称，自动生成 8 章节专业研报</strong>
@@ -15,7 +15,7 @@
 
 ## Overview
 
-FinAgent is a multi-agent system that generates institutional-grade financial research reports. Given a company name or ticker, it orchestrates a team of specialized agents to collect financial data, conduct web research, cross-validate findings, and produce a structured 8-section report — all streamed in real time via WebSocket.
+MindStack is a multi-agent system that generates institutional-grade financial research reports. Given a company name or ticker, it orchestrates a team of specialized agents to collect financial data, conduct web research, cross-validate findings, and produce a structured 8-section report — all streamed in real time via WebSocket.
 
 **Key design choice:** Each agent has a single responsibility. The Chief Editor manages the workflow, Researchers fetch data, Writers draft chapters, and Reviewers validate — no single agent does everything, which keeps prompts focused and outputs consistent.
 

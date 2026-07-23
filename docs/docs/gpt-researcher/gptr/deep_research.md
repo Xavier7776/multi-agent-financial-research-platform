@@ -1,6 +1,6 @@
 # Deep Research ✨ NEW ✨
 
-With the latest "Deep Research" trend in the AI community, we're excited to implement our own Open source deep research capability! Introducing GPT Researcher's Deep Research - an advanced recursive research system that explores topics with unprecedented depth and breadth. 
+With the latest "Deep Research" trend in the AI community, we're excited to implement our own Open source deep research capability! Introducing MindStack's Deep Research - an advanced recursive research system that explores topics with unprecedented depth and breadth. 
 
 Each deep research takes around 5 minutes to complete and costs around $0.4 (using `o3-mini` on `"high" `reasoning effort)
 

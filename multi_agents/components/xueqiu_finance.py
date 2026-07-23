@@ -51,11 +51,19 @@ class XueqiuDataTool:
 
     _token_set = False
 
-    def __init__(self, ticker: str):
+    def __init__(self, ticker: str, task: dict = None):
+        """
+        Args:
+            ticker: A 股/港股代码（如 600519、00700）
+            task: 任务配置 dict（含 model 等），用于 PeerResolver 的 LLM 兜底。
+                  向后兼容：未传时 PeerResolver 仍可用 YAML，仅跳过 LLM 兜底。
+        """
         self.ticker = ticker.strip()
         self.xq_symbol = _ticker_to_xq(self.ticker)
+        self._task = task
         self._cache: dict = {}
         self._api_delay = 0.2  # 雪球 API 调用间隔（秒），防止限流
+        self._peer_resolver = None  # lazy 初始化，避免 import 循环
 
     @classmethod
     def _ensure_token(cls):
@@ -252,5 +260,47 @@ class XueqiuDataTool:
     # ------------------------------------------------------------------
 
     async def get_industry_peers(self) -> list[dict]:
-        """雪球无同行列表接口。同行对比由 Editor 通过 Web 搜索自行获取。"""
-        return []
+        """获取同行列表 — 通过 PeerResolver 三层降级：
+        FMP /stock-peers API（A 股跳过）→ YAML 静态映射（含 A 股行业）→ LLM 兜底。
+
+        Returns:
+            [{"ticker","name","pe","pb","roe","revenue_growth","market_cap"}, ...]
+            与 FinancialDataTool 字段对齐。
+        """
+        cache_key = "industry_peers"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        try:
+            # 确保 overview 已缓存（PeerResolver 需要 sector/industry 做 YAML 匹配）
+            if "stock_overview" not in self._cache:
+                await self.get_stock_overview()
+            overview = self._cache.get("stock_overview", {})
+
+            resolver = self._get_peer_resolver()
+            peer_infos = await resolver.resolve(
+                ticker=self.ticker,
+                overview=overview,
+                industry=overview.get("industry", ""),
+            )
+            peers = [p.to_dict() for p in peer_infos]
+            self._cache[cache_key] = peers
+            return peers
+
+        except Exception as e:
+            logger.warning(f"[XueqiuData] get_industry_peers({self.ticker}) 失败: {e}")
+            return []
+
+    def _get_peer_resolver(self):
+        """lazy 初始化 PeerResolver。
+
+        A 股不传 fmp_fetcher（FMP API 不支持 A 股），只走 YAML → LLM 两层。
+        """
+        if self._peer_resolver is None:
+            from .peers import PeerResolver
+            self._peer_resolver = PeerResolver(
+                task=self._task,
+                fmp_fetcher=None,  # A 股跳过 FMP API
+                peer_info_fetcher=None,
+            )
+        return self._peer_resolver

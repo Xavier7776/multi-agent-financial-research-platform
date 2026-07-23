@@ -1,7 +1,7 @@
-"""Financial Data Retriever for GPT Researcher.
+"""Financial Data Retriever for MindStack.
 
 This module provides the FinancialDataRetriever class that integrates
-Yahoo Finance data into the GPT Researcher retrieval pipeline.
+Yahoo Finance data into the MindStack retrieval pipeline.
 It wraps FinancialDataTool as a first-class retriever alongside
 Tavily, Google, and other search backends.
 

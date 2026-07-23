@@ -1,5 +1,5 @@
 """
-Tool-enabled LLM utilities for GPT Researcher
+Tool-enabled LLM utilities for MindStack
 
 This module provides provider-agnostic tool calling functionality using LangChain's
 unified interface. It allows any LLM provider that supports function calling to use

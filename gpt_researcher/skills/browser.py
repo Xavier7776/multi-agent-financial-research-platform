@@ -1,4 +1,4 @@
-"""Browser manager skill for GPT Researcher.
+"""Browser manager skill for MindStack.
 
 This module provides the BrowserManager class that handles web scraping
 and content extraction from URLs.
